@@ -66,7 +66,28 @@ print('Greatest Increase in Profits: ' + (date[(profit_losses_changes.index(grea
 print('Greatest Decrease in Profits: ' + (date[(profit_losses_changes.index(greatest_decrease)+1)]) + ' ($' + str(greatest_decrease) + ')')
 
 
+#------- Export the results to a text file ------------
 
+# Create "Analysis" folder
+os.mkdir("Analysis")
+
+# Set variable for output file
+output_file = os.path.join('Analysis', 'budget_final.txt')
+
+Text = [
+        '\nTotal Months: ' + str(total_months) + '\n',
+        'Total: $' + str(total_profit_losses) + '\n',
+        'Average Change: $' + str(round(average_change, 2)) + '\n',
+        'Greatest Increase in Profits: ' + (date[(profit_losses_changes.index(greatest_increase)+1)]) + ' ($' + str(greatest_increase) + ')' + '\n',
+        'Greatest Decrease in Profits: ' + (date[(profit_losses_changes.index(greatest_decrease)+1)]) + ' ($' + str(greatest_decrease) + ')'
+      ]
+
+# Open the output file for writing
+with open(output_file, 'w') as txt_file:
+  # writing data to a file
+  txt_file.write('Financial Analysis \n')
+  txt_file.write(30*'-')
+  txt_file.writelines(Text)
 
 
 
