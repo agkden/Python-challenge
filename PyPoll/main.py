@@ -7,8 +7,8 @@ election_csv = os.path.join('Resources', 'election_data.csv')
 
 # create Lists and Dictionary to store data
 voters = []
-candidates_with_votes = {}
-
+candidates_with_votes = {}  # dictionary to store candidate name as key and votes as value
+#votes_percent = [] # list to store percentage of votes each candidate won
 
 
 # open csv file
@@ -32,20 +32,20 @@ with open(election_csv) as csvfile:
 
   #print(candidates_with_votes)
 
+
 # The total number of votes
 total_votes = len(voters)
 #print(total_votes)
 
 
+# The winner of the election based on popular vote
+winner = max(candidates_with_votes, key=candidates_with_votes.get)
+#print(winner)
 
 
 
 
 
-
-
-
- 
 
 #------- Print the Analysis to the Terminal ------------
 print(30*'-')
@@ -54,9 +54,9 @@ print(30*'-')
 print('Total Votes: ' + str(total_votes))
 print(30*'-')
 for x, y in candidates_with_votes.items():
-  print(x + ': ' +  str(y))
+  print(x + ': ' + str(round((candidates_with_votes[x] / total_votes * 100), 3)) + '% (' + str(y) + ')')
 print(30*'-') 
-print('Winner: ')
+print('Winner: ' + winner)
 print(30*'-')
 
 
