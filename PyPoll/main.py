@@ -5,14 +5,11 @@ import csv  # module for csv files
 # file path
 election_csv = os.path.join('Resources', 'election_data.csv')
 
-# create Lists to store data
-candidates = []
+# create Lists and Dictionary to store data
 voters = []
+candidates_with_votes = {}
 
-Khan_votes = 0
-Correy_votes = 0
-Li_votes = 0
-OTooley_votes = 0
+
 
 # open csv file
 with open(election_csv) as csvfile:
@@ -24,28 +21,31 @@ with open(election_csv) as csvfile:
   # read each row of data
   for row in csvreader:
     # iterate through each row and append to new lists
-    candidates.append(row[2])
-    #print(candidates)
-
-    voters.append(row[0])
+    voters.append(row[0])   
     # print(voters)
 
-    # The total number of votes each candidate won
-    if row[2] == "Khan":
-      Khan_votes += 1
-    elif row[2] == "Correy":
-      Correy_votes += 1
-    elif row[2] == "Li":
-      Li_votes += 1
-    elif row[2] == "O'Tooley":
-      OTooley_votes += 1
+    # A complete list of candidates who received votes and the total number of votes each candidate won
+    if row[2] not in candidates_with_votes:
+      candidates_with_votes[row[2]] = 1
+    else:      
+      candidates_with_votes[row[2]] += 1
+
+  #print(candidates_with_votes)
 
 # The total number of votes
 total_votes = len(voters)
 #print(total_votes)
 
 
-  
+
+
+
+
+
+
+
+
+ 
 
 #------- Print the Analysis to the Terminal ------------
 print(30*'-')
@@ -53,13 +53,12 @@ print('Election Results')
 print(30*'-')
 print('Total Votes: ' + str(total_votes))
 print(30*'-')
-print('Khan: ' + str(Khan_votes))
-print('Correy: ' + str(Correy_votes))
-print('Li: ' + str(Li_votes))
-print("O'Tooley: " + str(OTooley_votes))
-print(30*'-')
+for x, y in candidates_with_votes.items():
+  print(x + ': ' +  str(y))
+print(30*'-') 
 print('Winner: ')
 print(30*'-')
+
 
 
 #------- Export the results to a text file ------------
