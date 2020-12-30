@@ -59,11 +59,11 @@ greatest_decrease = min(profit_losses_changes)
 print(30*'-')
 print('Financial Analysis')
 print(30*'-')
-print('Total Months: ' + str(total_months))
-print('Total: $' + str(total_profit_losses))
-print('Average Change: $' + str(round(average_change, 2)))
-print('Greatest Increase in Profits: ' + (date[(profit_losses_changes.index(greatest_increase)+1)]) + ' ($' + str(greatest_increase) + ')')
-print('Greatest Decrease in Profits: ' + (date[(profit_losses_changes.index(greatest_decrease)+1)]) + ' ($' + str(greatest_decrease) + ')')
+print(f'Total Months: {total_months}')
+print(f'Total: ${total_profit_losses}')
+print(f'Average Change: ${round(average_change, 2)}')
+print(f'Greatest Increase in Profits: {date[(profit_losses_changes.index(greatest_increase)+1)]} (${greatest_increase})')
+print(f'Greatest Decrease in Profits: {date[(profit_losses_changes.index(greatest_decrease)+1)]} (${greatest_decrease})')
 
 
 #------- Export the results to a text file ------------
@@ -75,11 +75,11 @@ os.mkdir("Analysis")
 output_file = os.path.join('Analysis', 'budget_final.txt')
 
 Text = [
-        '\nTotal Months: ' + str(total_months) + '\n',
-        'Total: $' + str(total_profit_losses) + '\n',
-        'Average Change: $' + str(round(average_change, 2)) + '\n',
-        'Greatest Increase in Profits: ' + (date[(profit_losses_changes.index(greatest_increase)+1)]) + ' ($' + str(greatest_increase) + ')' + '\n',
-        'Greatest Decrease in Profits: ' + (date[(profit_losses_changes.index(greatest_decrease)+1)]) + ' ($' + str(greatest_decrease) + ')'
+        f'\nTotal Months: {total_months}\n',
+        f'Total: ${total_profit_losses}\n',
+        f'Average Change: ${round(average_change, 2)}\n',
+        f'Greatest Increase in Profits: {date[(profit_losses_changes.index(greatest_increase)+1)]} (${greatest_increase})\n',
+        f'Greatest Decrease in Profits: {date[(profit_losses_changes.index(greatest_decrease)+1)]} (${greatest_decrease})'
       ]
 
 # Open the output file for writing
