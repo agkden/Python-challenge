@@ -21,38 +21,38 @@ with open(budget_csv) as csvfile:
   for row in csvreader:
     # iterate through each row and append to new lists
     date.append(row[0])
-    #print(date)
-
+    
     profit_losses.append(int(row[1]))
-    #print(profit_losses)
+    
+
 
 
 # The total number of months included in the dataset
 total_months = len(date)
-#print(total_months)
+
 
 # The net total amount of "Profit/Losses" over the entire period
 total_profit_losses = sum(profit_losses)
-#print(total_profit_losses)
+
 
 # Calculate the changes in "Profit/Losses" over the entire period
 for i in range(len(profit_losses)-1):    
   profit_losses_changes.append(profit_losses[i+1]-profit_losses[i])
-  #print(profit_losses_changes)  
+    
 
 # Find the average of "Profit/Losses" changes
 average_change = sum(profit_losses_changes) / len(profit_losses_changes)
-#print(average_change)
+
 
 # Find the greatest increase in profits (date and amount) over the entire period
 greatest_increase = max(profit_losses_changes)
-#print(greatest_increase)
-#print(date[(profit_losses_changes.index(greatest_increase)+1)])
+
+
 
 # Find the greatest decrease in losses (date and amount) over the entire period
 greatest_decrease = min(profit_losses_changes)
-#print(greatest_decrease)
-#print(date[(profit_losses_changes.index(greatest_decrease)+1)])
+
+
 
 
 #------- Print the Analysis to the Terminal ------------
