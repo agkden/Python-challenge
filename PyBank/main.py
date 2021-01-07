@@ -14,7 +14,7 @@ profit_losses_changes = []
 with open(budget_csv) as csvfile:
   # Split the data on commas
   csvreader = csv.reader(csvfile, delimiter=',')
-  # if header row exist, skip the first row
+  # if header row exist
   header = next(csvreader)
 
   # Loop through the data
@@ -56,6 +56,7 @@ greatest_decrease = min(profit_losses_changes)
 
 
 #------- Print the Analysis to the Terminal ------------
+
 print(30*'-')
 print('Financial Analysis')
 print(30*'-')
@@ -68,8 +69,6 @@ print(f'Greatest Decrease in Profits: {date[(profit_losses_changes.index(greates
 
 #------- Export the results to a text file ------------
 
-# Create "Analysis" folder
-os.mkdir("Analysis")
 
 # Set variable for output file
 output_file = os.path.join('Analysis', 'budget_final.txt')

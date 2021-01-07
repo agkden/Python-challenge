@@ -42,6 +42,7 @@ winner = max(candidates_with_votes, key=candidates_with_votes.get)
  
 
 #------- Print the Analysis to the Terminal ------------
+
 print(30*'-')
 print('Election Results')
 print(30*'-')
@@ -56,14 +57,12 @@ print(30*'-')
 
 
 #------- Export the results to a text file ------------
-# Create "Analysis" folder
-os.mkdir("Analysis")
 
 #  Set variable for output file
 output_file = os.path.join('Analysis', 'election_final.txt')
 
 
-# Open the output file for writing into
+# Open the output file for writing into it
 with open(output_file, 'w') as txt_file:
   # writing data to a file
   txt_file.write(30*'-')
